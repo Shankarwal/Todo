@@ -1,13 +1,15 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
+import { AiOutlineDelete } from "react-icons/ai";
 
 type Props = {
   id: number;
   text: string;
   complete: boolean;
   onToggleClick: (id: number) => void;
+  removeTodo: (id: number) => void;
 };
 
-const TodoItem = ({ id, text, complete, onToggleClick }: Props) => {
+const TodoItem = ({ id, text, complete, onToggleClick, removeTodo }: Props) => {
   const [checked, setChecked] = useState(false);
   let radio = useRef<HTMLInputElement>(null);
   const handleToggleClick = (id: number) => {
@@ -18,15 +20,20 @@ const TodoItem = ({ id, text, complete, onToggleClick }: Props) => {
   };
   return (
     <div className="list-item">
-      <input
-        ref={radio}
-        type="radio"
-        onClick={() => handleToggleClick(id)}
-        onChange={() => setChecked(!checked)}
-        checked={complete}
-      />
-      <span style={{ textDecoration: complete ? "line-through" : "none" }}>
-        {text}
+      <div className="todo-desc">
+        <input
+          ref={radio}
+          type="radio"
+          onClick={() => handleToggleClick(id)}
+          onChange={() => setChecked(!checked)}
+          checked={complete}
+        />
+        <span style={{ textDecoration: complete ? "line-through" : "none" }}>
+          {text}
+        </span>
+      </div>
+      <span className="close" onClick={() => removeTodo(id)}>
+        <AiOutlineDelete />
       </span>
     </div>
   );

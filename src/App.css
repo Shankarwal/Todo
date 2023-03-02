@@ -1,13 +1,14 @@
 .App {
   display: flex;
   justify-content: center;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  width: 100%;
   background: #d9e8ee;
 }
 
 .main {
   margin-top: 6rem;
+  min-height: 100%;
 }
 
 .container {
@@ -52,13 +53,57 @@
 
 .list {
   margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  text-transform: capitalize;
+}
+
+.list label {
+  display: flex;
+  gap: 8px;
+}
+
+.sort {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+
+.sort:focus,
+.sort:active {
+  outline: 1px solid rgba(0, 0, 0, 0.4);
 }
 
 .list-item {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  padding: 6px 10px;
-  border-radius: 2px;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 3px;
   background: #e1e5ee;
+  transition: all 0.3s ease-in-out;
+}
+
+.list-item:hover {
+  background: #cdd7ee;
+}
+
+.todo-desc {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.close {
+  font-size: 1rem;
+  color: #e66969;
+  font-family: sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.close:hover {
+  color: #d44949;
+  transform: scale(1.1);
 }

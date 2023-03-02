@@ -3,6 +3,8 @@ import {
   TOGGLE_TODO,
   SET_FILTER,
   FILTER_CLEAR_COMPLTETED,
+  REMOVE_TODO,
+  FILTER_SORT,
 } from "./Actions";
 import rootReducer from "./TodoReducer";
 
@@ -21,14 +23,25 @@ export interface ClearAction {
   type: typeof FILTER_CLEAR_COMPLTETED;
 }
 
+export interface RemoveAction {
+  type: typeof REMOVE_TODO;
+  id: number;
+}
+
 export interface SetFilterAction {
   type: typeof SET_FILTER;
+  value: string;
+}
+
+export interface SortAction {
+  type: typeof FILTER_SORT;
   value: string;
 }
 
 export interface TodoModel {
   id: number;
   text: string;
+  date: string;
   completed: boolean;
 }
 
@@ -36,6 +49,8 @@ export type TodoActionTypes =
   | AddItemAction
   | ToggleAction
   | SetFilterAction
-  | ClearAction;
+  | ClearAction
+  | RemoveAction
+  | SortAction;
 
 export type RootState = ReturnType<typeof rootReducer>;
