@@ -7,6 +7,17 @@ import {
 } from "./Actions";
 import { TodoActionTypes, TodoModel } from "./Types";
 
+// interface TodoModelState {
+//   todos: TodoModel[],
+//   error: string,
+//   loading: boolean
+// }
+// const initialState: TodoModelState = {
+//   todos: [],
+//   error: '',
+//   loading: false
+// }
+// const initialState: TodoModel[] = []
 const initialState = [] as TodoModel[];
 
 const todoReducer = (
